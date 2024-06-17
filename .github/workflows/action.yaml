@@ -1,0 +1,21 @@
+name: CI/CD Workflow
+
+on:
+    push:
+      branches:
+        - peru
+        - argentina
+        - brazil
+        - chile
+
+jobs:
+    build-and-deploy:
+    
+        if: github.repository == 'materiagris-sac/actions-testing' 
+    
+        runs-on: ubuntu-latest
+    
+        timeout-minutes: 15
+    
+        environment: ${{ github.ref_name }}
+
